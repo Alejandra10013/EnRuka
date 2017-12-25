@@ -1,0 +1,31 @@
+﻿@model IEnumerable<EnRuka.Models.Producto>
+@{
+    ViewBag.Title = "Listado";
+}
+<h2>Listado</h2>
+<table class="table table-bordered table-hover table-responsive">
+    <thead>
+    <th>Id</th>
+    <th>Insumo</th>
+    <th>Temporada</th>
+    <th>Tipo</th>
+    <th>Cantidad</th>
+    <th colspan="2">Action</th>
+    </thead>
+    <tbody>
+        @foreach (EnRuka.Models.Producto pro in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => pro.Id)</td>
+                <td>@Html.DisplayFor(m => pro.Insumo)</td>
+                <td>@Html.DisplayFor(m => pro.Temporada)</td>
+                <td>@Html.DisplayFor(m => pro.Tipo)</td>
+                <td>@Html.DisplayFor(m => pro.Cantidad)</td>
+                <td>@Html.ActionLink("Ver Ficha", "Ficha", new { Id = pro.Id })</td>
+                <td>@Html.ActionLink("Quitar", "Eliminar", new { Id = pro.Id })</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
